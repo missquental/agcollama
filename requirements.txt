@@ -1,0 +1,6 @@
+streamlit
+langdetect
+langcodes
+requests
+beautifulsoup4
+ollama
