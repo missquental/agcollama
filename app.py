@@ -204,9 +204,10 @@ def generate_seo_article_with_images(subject, log_container=None):
         return {"error": error_msg}
 
 # Template HTML untuk output
-HTML_TEMPLATE = """
-<!DOCTYPE html>
-<html lang="{'id' if 'Indonesia' in detect_language(subject, None) else 'en'}">
+def create_html_template(title, content, subject):
+    html_lang = 'id' if 'Indonesia' in detect_language(subject, None) else 'en'
+    return f"""<!DOCTYPE html>
+<html lang="{html_lang}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -237,8 +238,7 @@ HTML_TEMPLATE = """
     <h1>{title}</h1>
     {content}
 </body>
-</html>
-"""
+</html>"""
 
 # Halaman Utama Streamlit
 st.set_page_config(page_title="SEO Article Generator", layout="wide")
@@ -275,7 +275,7 @@ if st.button("🚀 Generate Article"):
             st.success(f"✅ Article generated successfully ({word_count:,} characters)!")
 
             # Render HTML langsung di halaman
-            full_html = HTML_TEMPLATE.format(title=title, content=article_content, subject=subject)
+            full_html = create_html_template(title, article_content, subject)
             st.components.v1.html(full_html, height=1200, scrolling=True)
 
             # Tombol download
