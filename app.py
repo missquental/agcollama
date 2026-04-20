@@ -148,7 +148,7 @@ def bing_image_search(query, num_images=10, log_container=None):
                 image_html_list.append(
                     f'<div class="image-container">'
                     f'<img src="{murl}" alt="{image_name}" loading="lazy" width="600" height="400">'
-                    f'<div class="image-caption">{mdesc}</div>'
+                    f'<div class="image-caption"><small>{mdesc}</small></div>'
                     f'</div>'
                 )
 
@@ -248,11 +248,14 @@ def create_html_template(title, content, subject, theme="light"):
         }}
         img {{ max-width: 100%; height: auto; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }}
         .image-caption {{ 
-            font-size: 0.9em; 
+            font-size: 0.85em; 
             color: {'#666' if theme == 'light' else '#aaa'}; 
             font-style: italic; 
             margin-top: 10px; 
             line-height: 1.4;
+        }}
+        .image-caption small {{ 
+            font-size: 0.85em; 
         }}
         ul, ol {{ margin: 1em 0; padding-left: 2em; }}
         li {{ margin-bottom: 0.5em; }}
@@ -261,7 +264,8 @@ def create_html_template(title, content, subject, theme="light"):
             body {{ padding: 10px; }}
             h1 {{ font-size: 1.8em; }}
             h2 {{ font-size: 1.5em; }}
-            .image-caption {{ font-size: 0.8em; }}
+            .image-caption {{ font-size: 0.75em; }}
+            .image-caption small {{ font-size: 0.75em; }}
         }}
     </style>
 </head>
