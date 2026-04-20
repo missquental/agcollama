@@ -248,14 +248,14 @@ def create_html_template(title, content, subject, theme="light"):
         }}
         img {{ max-width: 100%; height: auto; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }}
         .image-caption {{ 
-            font-size: 0.85em; 
+            font-size: 0.50em; 
             color: {'#666' if theme == 'light' else '#aaa'}; 
             font-style: italic; 
             margin-top: 10px; 
             line-height: 1.4;
         }}
         .image-caption small {{ 
-            font-size: 0.85em; 
+            font-size: 0.50em; 
         }}
         ul, ol {{ margin: 1em 0; padding-left: 2em; }}
         li {{ margin-bottom: 0.5em; }}
